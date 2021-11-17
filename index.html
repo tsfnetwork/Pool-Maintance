@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="autodijagnostika">
+  <meta name="Pool maintance" content="Pool maintance">
   <meta name="author" content="">
   <title>TSF Pools</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,14 +15,6 @@
   <link href="css/animate.min.css" rel="stylesheet">
   <link href="css/owl.carousel.css" rel="stylesheet">
   <link href="css/owl.transitions.css" rel="stylesheet">
-  <link href="css/prettyPhoto.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/data.js"></script>
-  <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <!-- <link rel="shortcut icon" href="images/ico/favicon.ico"> -->
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700");
@@ -77,6 +69,56 @@ h1, .h1, h2, .h2, h3, .h3 {
   border: 1px solid rgb(53, 53, 53);
   background: rgba(0, 0, 0, 0.35);
 }
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 668px) {
+.box {
+    height: 361px;
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin: auto;
+    padding-top: 35px;
+    font-size: 78px;
+}
+.box1 {
+  height: 361px;
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin: auto;
+    padding-top: 35px;
+    font-size: 78px;
+}
+}
+@media only screen and (max-width: 568px) {
+.box {
+    height: 361px;
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin: auto;
+    padding-top: 35px;
+    font-size: 78px;
+}
+.box1 {
+  height: 361px;
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin: auto;
+    padding-top: 35px;
+    font-size: 78px;
+}
+.bck1 {
+    background-image: url(images/1.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+}
   </style>
 </head>
 <body>
@@ -102,250 +144,6 @@ h1, .h1, h2, .h2, h3, .h3 {
       </div>
     </div>
 </section>
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/mousescroll.js"></script>
-  <script src="js/jquery.prettyPhoto.js"></script>
-  <script src="js/jquery.isotope.min.js"></script>
-  <script src="js/jquery.inview.min.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script src="js/contact.js"></script>
-  <script src="js/custom-scripts.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.22.0/axios.min.js" integrity="sha512-m2ssMAtdCEYGWXQ8hXVG4Q39uKYtbfaJL5QMTbhl2kc6vYyubrKHhr6aLLXW4ITeXSywQLn1AhsAaqrJl8Acfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    jQuery(document).ready(function ($) {
-      // setInterval(function () {
-      jQuery.ajax({
-        type: 'GET',
-        url: 'https://explorer.tsf-platform.com/api/v1/network/stats',
-        dataType: 'json',
-        success: function (response) {
-          let responsefromExplorer = response;
-          console.log(responsefromExplorer);
-          let blockNumber = responsefromExplorer[0].number;
-          console.log(blockNumber);
-          jQuery("#blockNumber").html(blockNumber);
-          let networkDiff = responsefromExplorer[0].difficulty;
-          console.log(networkDiff);
-          jQuery("#networkDiff").html(networkDiff);
-          let circulatingSupply = responsefromExplorer[0].circulatingSupply;
-          console.log(circulatingSupply);
-          jQuery("#circulatingSupply").html(circulatingSupply);
-          let netHahrate = responsefromExplorer[0].hashrate;
-          console.log(netHahrate);
-          jQuery("#networkHashrate").html(netHahrate + " GH");
-          let blockTime = responsefromExplorer[0].blockTime;
-          console.log(blockTime);
-          jQuery("#blockTime").html(blockTime + "sec");
-          let gasLimit = responsefromExplorer[0].gasLimit;
-          console.log(gasLimit);
-          jQuery("#gasLimit").html(gasLimit);
-        },
-        error: function (jqXHR, textStatus) {
-          console.log(textStatus);
-        }
-      });
-      //////////////PROP
-      jQuery.ajax({
-        type: 'GET',
-        url: 'http://tsfpool.xyz/api/stats',
-        dataType: 'json',
-        success: function (response) {
-          let responseProp = response;
-          console.log(responseProp);
-          let tsfhashrate = responseProp.hashrate;
-          tsfhashrate = (tsfhashrate / 1000000000).toFixed(3);
-          jQuery("#hashrate_prop").html(tsfhashrate + " GH");
-          console.log((tsfhashrate / 1000000000).toFixed(3));
-          let lastBlockFound = responseProp.nodes[0].lastBeat;
-          console.log(lastBlockFound);
-          jQuery("#lastBeat").html(lastBlockFound);
-          let minersOnline = responseProp.minersTotal;
-          console.log(minersOnline);
-          jQuery("#miner_prop").html(minersOnline);
-        },
-        error: function (jqXHR, textStatus) {
-          console.log(textStatus);
-        }
-      });
-
-
-      //////////PPLNS
-      jQuery.ajax({
-        type: 'GET',
-        url: 'http://eu.tsfpool.com/api/stats',
-        dataType: 'json',
-        success: function (response) {
-          let responsePplns = response;
-          console.log(responsePplns);
-          let pplnsHashrate = responsePplns.hashrate;
-          pplnsHashrate = (pplnsHashrate / 1000000000).toFixed(3);
-          jQuery("#pplnsHashrate").html(pplnsHashrate + " GH");
-          console.log((pplnsHashrate / 1000000000).toFixed(3));
-          let blocksPplns = responsePplns.nodes[0].lastBeat;
-          console.log(blocksPplns);
-          jQuery("#lastBlocks").html(blocksPplns);
-          let minersPplns = responsePplns.minersTotal;
-          console.log(minersPplns);
-          jQuery("#pplnsMiners").html(minersPplns);
-        },
-        error: function (jqXHR, textStatus) {
-          console.log(textStatus);
-        }
-      });
-     
-      jQuery.ajax({
-        type: 'GET',
-        url: 'http://de.tsfpool.com/api/stats',
-        dataType: 'json',
-        success: function (response) {
-          let responseDe = response;
-          console.log(responseDe);
-          let deHashrate = responseDe.hashrate;
-          deHashrate = (deHashrate / 1000000000).toFixed(3);
-          jQuery("#deHashrate").html(deHashrate + " GH");
-          console.log((deHashrate / 1000000000).toFixed(3));
-          let blocksDe = responseDe.nodes[0].lastBeat;
-          console.log(blocksDe);
-          jQuery("#lastBlocks1").html(blocksDe);
-          let minersDe = responseDe.minersTotal;
-          console.log(minersDe);
-          jQuery("#deMiners").html(minersDe);
-        },
-        error: function (jqXHR, textStatus) {
-          console.log(textStatus);
-        }
-      });
-
-      
-      jQuery.ajax({
-        type: 'GET',
-        url: 'https://api.coingecko.com/api/v3/coins/teslafunds',
-        dataType: 'json',
-        success: function (response1) {
-            console.log(response1);
-            var current_price = response1.market_data.current_price.usd;
-            console.log(current_price);
-            jQuery("#current_price").html(current_price + " $");
-        },
-        error: function (jqXHR, textStatus) {
-            console.log(textStatus);
-        }
-    });
-
-    });
-
-    const callPoolApi = async () => {
-      try {
-          const [pools] = await Promise.all([
-              axios.get('https://report.tsf-platform.com/api/v1/pools/all')
-              .then(res => {
-                console.log(res.data);
-                const poolArr = res.data;
-                const aikaHashrate = poolArr[0].poolhashrate;
-                jQuery("#aikaHashrate").html(aikaHashrate + " GH");
-                const aikaMiners = poolArr[0].miners;
-                jQuery("#minersAika").html(aikaMiners);
-                const zergHashrate = poolArr[1].poolhashrate;
-                jQuery("#zergHashrate").html(zergHashrate + " GH");
-                const zergMiners = poolArr[1].miners;
-                jQuery("#zergMiners").html(zergMiners);
-                const cominingHashrate = poolArr[2].poolhashrate;
-                jQuery("#coHashrate").html(cominingHashrate + " GH");
-                const cominingMiners = poolArr[2].miners;
-                jQuery("#minersCo").html(cominingMiners);
-                const coolpoolHashrate = poolArr[3].poolhashrate;
-                jQuery("#coHashrate1").html(coolpoolHashrate + " GH");
-                const coolpoolMiners = poolArr[3].miners;
-                jQuery("#coMiners").html(coolpoolMiners);
-              })
-              .catch(error => {
-                  console.error(error);
-                  return {
-                      poolname: "comining",
-                      poolhashrate: 0
-                  }
-              })
-          ]);
-          const allTsfPools = [pools];
-      } catch (error) {
-          console.log("can not callPoolApi", error);
-      }
-    } 
-    callPoolApi();
-  </script>
-  <script>
-     const callGraph = async () => {
-      try {
-        const graphData = await axios.get('https://explorer.tsf-platform.com/api/v1/block/graph/pools');
-        return graphData;
-      } catch (error) {
-          console.log("can not callPoolApi", error);
-      }
-     }
-     
-     const startChart = async () => {
-      var chartData = await callGraph();
-      console.log(chartData.data);
-      Highcharts.chart('container', {
-        chart: {
-          plotBackgroundColor: null,
-          plotBorderWidth: null,
-          plotShadow: false,
-          type: 'pie'
-        },
-        title: {
-          text:'Top Miners ( Last 500 Blocks)'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.y}</b><br>address: <b>{point.miner}</b>'
-
-        },
-        plotOptions: {
-          pie: {
-            colors: ['#ff9400', '#4287e2', '#1b3156', '#63D7C0', '#cd3292', '#0076ba', '#0f0', '#954a97', '#b7b7b6' ],
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                style: {
-                    color: 'black'
-                },
-                connectorColor: 'silver'
-            }
-          }
-        },
-        series: [{
-          name: 'Mined blocks',
-          data: chartData.data
-        }]  
-    }); 
-  } 
-  startChart();
-//     pieChartData: Ember.computed('model', {
-
-//       get() {
-//             let mini = this.get('model.6.mini');
-        
-          
-    
-//     var pieChartData = [{
-//         type: 'pie',
-        
-      
-//         name: 'Mined blocks',
-//         data: mini
-
-//     }] 
-//     return pieChartData;
-//   }
-// })
-  </script>
-  
 </body>
 
 </html>
