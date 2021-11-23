@@ -69,6 +69,38 @@ h1, .h1, h2, .h2, h3, .h3 {
   border: 1px solid rgb(53, 53, 53);
   background: rgba(0, 0, 0, 0.35);
 }
+#header #button:hover > .content {
+    opacity:1;
+    height: auto;
+    padding: 8px; 
+    background: #fffcfc12;   
+}
+
+#header #button .content {
+    opacity:0;
+    clear: both;
+    height: 0;
+    padding: 0 8px;
+    overflow: hidden;
+    
+    -webkit-transition: all .3s ease .15s;
+    -moz-transition: all .3s ease .15s;
+    -o-transition: all .3s ease .15s;
+    -ms-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+    -webkit-border-radius: 0px 7px 7px 7px;
+    -moz-border-radius: 0px 7px 7px 7px;
+    -khtml-border-radius: 0px 7px 7px 7px;
+    border-radius: 0px 7px 7px 7px;
+    
+    box-shadow: -1px -1px 9px 8px #ffffff02;
+
+    background: #FFF;
+}
+    .animation1 {
+      width: 65%;
+      margin: auto;
+    }
 
 /* RESPONSIVE */
 
@@ -118,6 +150,12 @@ h1, .h1, h2, .h2, h3, .h3 {
       height: 100%;
       background-size: cover;
   }
+  .animation1 {
+    width: 100%;
+    margin: auto;
+    border-radius: 7px;
+    transition: all 1s linear;
+  }
 }
   </style>
 </head>
@@ -134,12 +172,37 @@ h1, .h1, h2, .h2, h3, .h3 {
             <a href="http://eu.tsfpool.com/#/" style="color: #fff; text-align: center;">EU TSF POOL</a>
             <p style="text-align: center; color: rgb(39, 39, 39); font-size: 27px;">PPLNS</p>
           </div>
+          <div id="header" class="animation1">
+            <div id="button" style="margin-bottom: 30px;">
+              <p style="padding-top: 30px; color: #fff; cursor: help;">WHY PPLNS?</p>
+              <div class="content">
+                <h1 id="pplns" style="color: rgb(197, 197, 197);">Pay-Per-Last-N-Shares</h1>
+                <p style="color: #fff;">Notably, in the short term, the PPLNS model is highly correlated with a pool’s luck. If the luck factor of a particular mining pool decreases in the short term, the miner’s income will also decrease accordingly (the opposite case of the mining pool being lucky in the short term is possible too). However, in the long term, the luck factor tends to average out to the mean.
+                  Hence, this model is ideal for fixing orders on a big pool that has a high chance of finding a block within the order time limit. Or a standard order which will have miners connected for a longer time.
+                </p>
+              
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="col-md-6" style="text-align: center;">
           <div class="box1">
             <a href="http://de.tsfpool.com/#/" style="color: #fff; text-align: center;">DE TSF POOL</a>
             <p style="text-align: center; color: rgb(39, 39, 39); font-size: 27px;">PROP</p>
           </div>
+          <div id="header" class="animation1">
+            <div id="button" style="margin-bottom: 40px;">
+              <p style="padding-top: 30px; color: #fff; cursor: help;">WHY PROP?</p>
+              <div class="content">
+                <h1 id="prop" style="color: rgb(197, 197, 197);">Proportional</h1>
+                <p style="color: #fff;">The payments of PPLNS are based on rounds just like in Proportional. Proportional is the simplest reward system. Rewards come from “rounds” – the time between one block found by the pool and the next. You are rewarded for the shares you submit in proportion to all shares 
+                  submitted during each round. Each miner is rewarded proportionally from the shares that are selected by the PPLNS window. For example, if a miner's shares account for 50% of the shares in the PPLNS window, then the miner will receive 50% of the block reward.
+                  </p>
+                </div>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>
